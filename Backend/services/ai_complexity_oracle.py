@@ -8,10 +8,9 @@ import requests
 import os
 
 # IBM ML Deployment Config (use env vars, fallback to defaults)
-IBM_API_KEY = os.getenv("IBM_API_KEY", "w1Dr0mhKlkBqCWi_T8fq8N_F472Y5cRxpIjJ8xh8xE_0")
+IBM_API_KEY = os.getenv("IBM_API_KEY")
 DEPLOYMENT_URL = os.getenv(
-    "IBM_DEPLOYMENT_URL",
-    "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/0e5906c0-c5ea-4c4f-bf59-e30e450d763a/predictions?version=2021-05-01"
+    "IBM_DEPLOYMENT_URL"
 )
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")

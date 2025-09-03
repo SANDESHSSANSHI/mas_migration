@@ -4,11 +4,13 @@ import pyodbc
 import requests
 from fastapi import HTTPException
 from utils.credentials_store import load_credentials
-
+import os
 # ---------------- IBM ML Deployment Config ----------------
-IBM_API_KEY = "mcHk8CXMTx1hZ4WVHZGDjL3RqEJZKrURynWnA78iD"
-DEPLOYMENT_URL = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/cb8a1fb7-f806-469c-b6dd-7ab34e85001c/predictions?version=2021-05-01"
-
+# IBM ML Deployment Config (use env vars, fallback to defaults)
+IBM_API_KEY = os.getenv("IBM_API_KEY")
+DEPLOYMENT_URL = os.getenv(
+    "IBM_DEPLOYMENT_URL"
+)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 
